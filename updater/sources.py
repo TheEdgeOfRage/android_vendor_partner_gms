@@ -28,6 +28,7 @@ def fdroid_recommended_release(repo: str, application_id: str):
                 if node.getAttribute('id') == application_id:
                     doc.expandNode(node)
                     marketvercode = _child_el_content(node, 'marketvercode')
+                    print(marketvercode)
                     for p in node.getElementsByTagName('package'):
                         if _child_el_content(p, 'versioncode') == marketvercode:
                             return ApkRelease(
